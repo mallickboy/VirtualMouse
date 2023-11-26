@@ -2,7 +2,7 @@
 # Virtual Mouse With Hand Gestures
 
 
-This repository contains a  ** Virtual Mouse application** written in Python and its **setup file** for windows is coming soon.
+This repository contains a **Virtual Mouse Application** written in Python, and its setup file for Windows is coming soon.
 
   
 
