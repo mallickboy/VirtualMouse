@@ -1,13 +1,11 @@
-import typing
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QMainWindow,QApplication,QMessageBox
 from PyQt5 import QtCore, uic
-from PyQt5.QtWidgets import QWidget
-from mouse import controlVM as ctl
+from assets.staticIncludes.mouse import controlVM as ctl
 
 class MyGui(QMainWindow):
     def __init__(self):
         super(MyGui,self).__init__()
-        uic.loadUi("./assets/ui.ui",self)
+        uic.loadUi("./assets/windowForms/ui.ui",self)
         self.setFixedSize(520, 600)
         self.show()
         self.pushButton_start.setStyleSheet('background-color: rgba(63, 195, 128,0.8)')
@@ -17,7 +15,7 @@ class MyGui(QMainWindow):
         self.plainTextEdit_msg.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.msg=""
         self.line=0
-
+        self.control_map=["Click","Right Click","Scroll Up","Scroll Down","Change Tab"]
     def update_msg_box(self,msg):
         print(msg)
         self.line+=1
@@ -38,13 +36,36 @@ class MyGui(QMainWindow):
         self.pushButton_start.setEnabled(False)
         self.pushButton_start.setStyleSheet('background-color: rgba(0, 0, 0,0.1)')
         # start()
+        self.get_controls()
         self.update_msg_box(ctl.start())
+    def get_controls(self):
+        def match(item):
+            i=0
+            for element in self.control_map:
+                print(element, "i= ",i)
+                if element==item:break
+                else:i+=1
+            if i==len(self.control_map):i=0 # not found select click
+            return i
+        
+        selected_ctl=[self.comboBox_a1.currentText(),
+                      self.comboBox_a2.currentText(),
+                      self.comboBox_a3.currentText(),
+                      self.comboBox_a4.currentText()
+                      ]
+        selected_sensi=[int(self.comboBox_dpi1.currentText()),
+                      int(self.comboBox_dpi2.currentText()),
+                      int(self.comboBox_dpi3.currentText()),
+                      int(self.comboBox_dpi4.currentText())
+                      ]
+        selected_ctl_array=[]
+        for select in selected_ctl:
+            selected_ctl_array.append(match(select))
+        self.update_msg_box(f"Controls : {selected_ctl}")
+        ctl.update(selected_ctl_array,selected_sensi) # updating backend array
+        return selected_ctl    
     def update(self):
-        # self.line+=1
-        # self.msg=self.msg+f"\n{self.line} : Updating the Virtual Mouse configurations"
-        # print("update")
-        # self.plainTextEdit_msg.setPlainText(self.msg)
-        # self.plainTextEdit_msg.verticalScrollBar().setValue(self.plainTextEdit_msg.verticalScrollBar().maximum())
+        self.get_controls()
         self.update_msg_box("Updating the Virtual Mouse configurations")
     def stop(self):
         # self.line+=1

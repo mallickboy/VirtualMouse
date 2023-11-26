@@ -20,7 +20,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>red.ico</normaloff>red.ico</iconset>
+    <normaloff>../images/red.ico</normaloff>../images/red.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_start">

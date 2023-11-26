@@ -16,7 +16,7 @@ start_flag=0
 dis_pointer_click=100
     # i ,x y,c ,rc,up,dn
 mouse=[0,0,0,80,80,80,80]
-action=[0,1,2,3]# click,scrollDown,scrollUp,rightClick
+action_selector=[0,1,2,3]# click,scrollDown,scrollUp,rightClick
 sensi=[20,20,5,3] # sencitivity of ctl action
 
 
@@ -159,7 +159,20 @@ class control_mouse_pointer(threading.Thread):
         self.thread_id = thread_id
         self.device_id = device_id
         self.is_running = True
-
+        self.action=[
+            lambda:(pyautogui.click(),print("Clicked : ",threading.active_count()) ,pyautogui.sleep(0.2)),
+            lambda:(pyautogui.scroll(-100),print("scroll down",mouse[6]),pyautogui.sleep(0.1) ),
+            lambda:( pyautogui.scroll(100),print("scroll up",mouse[5]),pyautogui.sleep(0.1) ),
+            lambda:(pyautogui.rightClick(),print("Right Clicked : ",threading.active_count()),pyautogui.sleep(0.4)),
+            # lambda:print("clicked"),
+            # lambda:print("scroll down"),
+            # lambda:print("scroll up"),
+            # lambda:print("Right Clicked"),
+                     ]
+        
+    def ctl_action(self,selector):
+        select=action_selector[selector]
+        self.action[select]()
     def run(self):
         print(f"Thread-{self.thread_id}: Starting mouse control...")
         global mouse,sensi
@@ -169,33 +182,71 @@ class control_mouse_pointer(threading.Thread):
                 video_thread.stop()
                 video_play_thread.stop()
                 control_mouse.stop()
-                return
-
+                return 0
             if(mouse[1]<=display_width and mouse[2]<=display_height and mouse[1]and mouse[2] and mouse[0] ):
                 pyautogui.moveTo(mouse[1],mouse[2])
                 # print("move ",xd,yd)
                 # print(mouse[3])
-            if mouse[3]<sensi[0] : # thumb & index
-                print("Clicked : ",threading.active_count())
+
+            if mouse[3]<sensi[0] : # thumb & index                              ctl 0 : default action 0 (click)
+                # print("Clicked : ",threading.active_count())
+                # # time.sleep(0.1)
+                # pyautogui.click() # click operation
+                # pyautogui.sleep(0.2)
+                # self.action[0]()
+                self.ctl_action(0)
+            elif mouse[4]<sensi[1]: # thumb & pinky                             ctl 1 : default action 1 (right click)
+                # print("Right Clicked : ",threading.active_count())
                 # time.sleep(0.1)
-                pyautogui.click() # click operation
-                pyautogui.sleep(0.2)
-            elif mouse[4]<sensi[1]: # thumb & pinky
-                print("Right Clicked : ",threading.active_count())
-                # time.sleep(0.1)
-                pyautogui.rightClick() # click operation
+                # pyautogui.rightClick() # click operation
                 # pyautogui.scroll(-100)
-                pyautogui.sleep(0.4)
-            elif mouse[5]<sensi[2] and mouse[0] : # index & middle
-                print("scroll up",mouse[5])
-                pyautogui.scroll(100) # SCROLL UP
-                pyautogui.sleep(0.1)
-            elif mouse[6]<sensi[3] and mouse[0] : # thumb tip & index buttom   
-                print("scroll down",mouse[6])
-                pyautogui.scroll(-100) #scroll down
-                pyautogui.sleep(0.1)
-    # def ctl_pyautogui(self,selector):
-        
+                # pyautogui.sleep(0.4)
+                self.ctl_action(1)
+            elif mouse[5]<sensi[2] and mouse[0] : # index & middle              ctl 2 : default action 2 (scroll up)
+                # print("scroll up",mouse[5])
+                # pyautogui.scroll(100) # SCROLL UP
+                # pyautogui.sleep(0.1)
+                self.ctl_action(2)
+            elif mouse[6]<sensi[3] and mouse[0] : # thumb tip & index buttom    ctl 3 : default action 3 (scroll down)
+                # print("scroll down",mouse[6])
+                # pyautogui.scroll(-100) #scroll down
+                # pyautogui.sleep(0.1)
+                self.ctl_action(3)
+    # def run(self):
+    #     print(f"Thread-{self.thread_id}: Starting mouse control...")
+    #     global mouse,sensi
+    #     while self.is_running :
+    #         if keyboard.is_pressed('c'):
+    #             print("Quitting the loop.")
+    #             video_thread.stop()
+    #             video_play_thread.stop()
+    #             control_mouse.stop()
+    #             return 0
+
+    #         if(mouse[1]<=display_width and mouse[2]<=display_height and mouse[1]and mouse[2] and mouse[0] ):
+    #             pyautogui.moveTo(mouse[1],mouse[2])
+    #             # print("move ",xd,yd)
+    #             # print(mouse[3])
+    #         if mouse[3]<sensi[0] : # thumb & index
+    #             print("Clicked : ",threading.active_count())
+    #             # time.sleep(0.1)
+    #             pyautogui.click() # click operation
+    #             pyautogui.sleep(0.2)
+    #         elif mouse[4]<sensi[1]: # thumb & pinky
+    #             print("Right Clicked : ",threading.active_count())
+    #             # time.sleep(0.1)
+    #             pyautogui.rightClick() # click operation
+    #             # pyautogui.scroll(-100)
+    #             pyautogui.sleep(0.4)
+    #         elif mouse[5]<sensi[2] and mouse[0] : # index & middle
+    #             print("scroll up",mouse[5])
+    #             pyautogui.scroll(100) # SCROLL UP
+    #             pyautogui.sleep(0.1)
+    #         elif mouse[6]<sensi[3] and mouse[0] : # thumb tip & index buttom   
+    #             print("scroll down",mouse[6])
+    #             pyautogui.scroll(-100) #scroll down
+    #             pyautogui.sleep(0.1)
+      
     def stop(self):
         print(f"Thread-{self.thread_id}: mouse control thread stopped.")
         self.is_running = False
@@ -214,6 +265,8 @@ class controlVM():
         return "Virtual Mouse is successfully started"
     def stop():
         global start_flag
+        # try:video_thread.stop()
+        # except:0
         if start_flag:
             print("calling stop")
             video_play_thread.stop()
@@ -225,8 +278,12 @@ class controlVM():
             cv2.destroyAllWindows()
             return "Virtual Mouse is successfully stopped"
         return "Virtual Mouse is already stopped"
-    def update():
-        global ctl,action
+    def update(action_selected,sensi_selected):
+        global action_selector,sensi
+        action_selector=action_selected
+        sensi=sensi_selected
+
+        print(f"New config      actions: {action_selector}  sensitivity: {sensi_selected}")
         return "Updated configurations successfully"    
 
 
