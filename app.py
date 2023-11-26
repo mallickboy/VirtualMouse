@@ -1,11 +1,11 @@
 from PyQt5.QtWidgets import QMainWindow,QApplication,QMessageBox
 from PyQt5 import QtCore, uic
-from mouse import controlVM as ctl
+from assets.staticIncludes.mouse import controlVM as ctl
 
 class MyGui(QMainWindow):
     def __init__(self):
         super(MyGui,self).__init__()
-        uic.loadUi("./assets/ui.ui",self)
+        uic.loadUi("./assets/windowForms/ui.ui",self)
         self.setFixedSize(520, 600)
         self.show()
         self.pushButton_start.setStyleSheet('background-color: rgba(63, 195, 128,0.8)')
