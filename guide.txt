@@ -1,0 +1,26 @@
+Step 0: Set virtual envirounment 
+    python -m venv folder_name  
+
+
+Step 1: activate virtual envirounment (folder_name) from its parent folder
+    .\folder_name\Scripts\activate
+
+Step 2: Install required library written inside version_requirements.txt 
+    pip install moviepy
+    pip install pytube
+    pip freeze > version_requirements.txt  (to keep track of used library)
+
+Step 3: go inside virtual library
+    \folder_name\Lib\site-packages
+    or keep app.py in the parent directry of virtual envirounment (folder_name)
+
+Step 4: create & run python file
+    python app.py
+
+
+Step 5: Deactivate virtual envirounment for folder_name
+    deactivate
+
+
+    *** To install this youtube Downloader in windows ***
+    double click on YouDownloader_mysetup and please write your opinion about the software
