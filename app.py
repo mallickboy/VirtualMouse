@@ -19,7 +19,7 @@ class MyGui(QMainWindow):
                                                   QDesktopServices.openUrl(QtCore.QUrl("https://github.com/mallickboy?tab=repositories")))) 
         self.msg=""
         self.line=0
-        self.control_map=["Click","Right Click","Scroll Up","Scroll Down","Change Tab"]
+        self.control_map=["Click","Scroll Down","Scroll Up","Right Click","Change Tab","Change Window","Minimize All","Lock Window","Exit Window","Print Window","File Manager","Virtual Keyboard","Press Enter"]
     def update_msg_box(self,msg):
         print(msg)
         self.line+=1
@@ -47,10 +47,10 @@ class MyGui(QMainWindow):
             if i==len(self.control_map):i=0 # not found select click
             return i
         
-        selected_ctl=[self.comboBox_a1.currentText(),
-                      self.comboBox_a2.currentText(),
-                      self.comboBox_a3.currentText(),
-                      self.comboBox_a4.currentText()
+        selected_ctl=[self.comboBox_a1.currentText(), #1st
+                      self.comboBox_a4.currentText(), #4th
+                      self.comboBox_a3.currentText(),#3rd
+                      self.comboBox_a2.currentText()#2nd
                       ]
         selected_sensi=[int(self.comboBox_dpi1.currentText()),
                       int(self.comboBox_dpi2.currentText()),

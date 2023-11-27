@@ -42,52 +42,12 @@
      <string>Start</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_a2">
-    <property name="geometry">
-     <rect>
-      <x>235</x>
-      <y>290</y>
-      <width>101</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>9</pointsize>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>Scroll Down</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Change Tab</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Click</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Right Click</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Scroll Up</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QComboBox" name="comboBox_a3">
     <property name="geometry">
      <rect>
-      <x>235</x>
+      <x>240</x>
       <y>320</y>
-      <width>101</width>
+      <width>161</width>
       <height>24</height>
      </rect>
     </property>
@@ -109,6 +69,41 @@
     <item>
      <property name="text">
       <string>Change Tab</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Change Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Minimize All</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Lock Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Exit Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>File Manager</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Press Enter</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Virtual Keyboard</string>
      </property>
     </item>
     <item>
@@ -168,9 +163,9 @@
    <widget class="QComboBox" name="comboBox_dpi2">
     <property name="geometry">
      <rect>
-      <x>372</x>
+      <x>430</x>
       <y>290</y>
-      <width>101</width>
+      <width>61</width>
       <height>24</height>
      </rect>
     </property>
@@ -230,52 +225,12 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_a4">
-    <property name="geometry">
-     <rect>
-      <x>235</x>
-      <y>350</y>
-      <width>101</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>9</pointsize>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>Right Click</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Scroll Up</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Scroll Down</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Change Tab</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Click</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QComboBox" name="comboBox_dpi3">
     <property name="geometry">
      <rect>
-      <x>372</x>
+      <x>430</x>
       <y>320</y>
-      <width>101</width>
+      <width>61</width>
       <height>24</height>
      </rect>
     </property>
@@ -347,9 +302,9 @@
    <widget class="QComboBox" name="comboBox_dpi4">
     <property name="geometry">
      <rect>
-      <x>372</x>
+      <x>430</x>
       <y>350</y>
-      <width>101</width>
+      <width>61</width>
       <height>24</height>
      </rect>
     </property>
@@ -415,9 +370,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>235</x>
+      <x>240</x>
       <y>260</y>
-      <width>101</width>
+      <width>161</width>
       <height>24</height>
      </rect>
     </property>
@@ -435,9 +390,9 @@
    <widget class="QComboBox" name="comboBox_dpi1">
     <property name="geometry">
      <rect>
-      <x>372</x>
+      <x>430</x>
       <y>260</y>
-      <width>101</width>
+      <width>61</width>
       <height>24</height>
      </rect>
     </property>
@@ -600,6 +555,156 @@
     <property name="placeholderText">
      <string>This project is developed by Tamal Mallick,Avhishek Mondal and Souvik Baidya under the guidance of Dr. Anirban Lakshman  . </string>
     </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_a2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>290</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>Scroll Down</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Change Tab</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Change Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Minimize All</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Lock Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Exit Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>File Manager</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Press Enter</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Virtual Keyboard</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Click</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Right Click</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Scroll Up</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_a4">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>350</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>Right Click</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Scroll Up</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Scroll Down</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Change Tab</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Change Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Minimize All</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Lock Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Exit Window</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>File Manager</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Press Enter</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Virtual Keyboard</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Click</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

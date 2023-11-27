@@ -3,7 +3,7 @@ import cv2 # importing cv2 for camera related works
 import mediapipe as mp # Using to detect hand
 import pyautogui # to control mouse pointer
 import threading
-import time
+import os
 import keyboard
 display_width,display_height=pyautogui.size() # getting dispaly size
 cap=cv2.VideoCapture(0) # 0 => first video source
@@ -129,16 +129,26 @@ class VideoPlayThread(threading.Thread):
         self.is_running = False
 
 class control_mouse_pointer(threading.Thread):
-    def __init__(self, thread_id=2, device_id=0):
+    def __init__(self, thread_id=3, device_id=0):
         threading.Thread.__init__(self)
         self.thread_id = thread_id
         self.device_id = device_id
+        global video_thread,control_mouse,video_play_thread
         self.is_running = True
         self.action=[
             lambda:(pyautogui.click(),print("Clicked : ",threading.active_count()) ,pyautogui.sleep(0.2)),
             lambda:(pyautogui.scroll(-100),print("scroll down",mouse[6]),pyautogui.sleep(0.1) ),
             lambda:( pyautogui.scroll(100),print("scroll up",mouse[5]),pyautogui.sleep(0.1) ),
             lambda:(pyautogui.rightClick(),print("Right Clicked : ",threading.active_count()),pyautogui.sleep(0.4)),
+            lambda:(pyautogui.hotkey('ctrl', 'tab'),print("Change Tab : ",threading.active_count()),pyautogui.sleep(0.3)),
+            lambda:(pyautogui.hotkey('ctrl','alt', 'tab'),print("Change Window : ",threading.active_count()),pyautogui.sleep(0.3)),
+            lambda:(pyautogui.hotkey('win', 'd'),print("Minimize all : ",threading.active_count()),pyautogui.sleep(0.6)),
+            lambda:(control_mouse.stop(),video_play_thread.stop(),video_thread.stop(),os.system("rundll32.exe user32.dll,LockWorkStation"),print("Lock Winwodw : ",threading.active_count()),pyautogui.sleep(0.3)),
+            lambda:(pyautogui.hotkey('alt', 'f4'),print("Exit Current Window : ",threading.active_count()),pyautogui.sleep(0.3)),
+            lambda:(pyautogui.hotkey('win', 'prtsc'),print("Print Window : ",threading.active_count()),pyautogui.sleep(0.3)),
+            lambda:(pyautogui.hotkey('win', 'e'),print("Open File Explorer : ",threading.active_count()),pyautogui.sleep(0.3)),
+            lambda:(pyautogui.hotkey('win', 'ctrl', 'o'),print("Open Virtual Keyboard : ",threading.active_count()),pyautogui.sleep(0.6)),
+            lambda:(pyautogui.press('enter'),print("Pressed Enter : ",threading.active_count()),pyautogui.sleep(0.6)),
                      ]    
     def ctl_action(self,selector):
         select=action_selector[selector]
