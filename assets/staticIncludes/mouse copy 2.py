@@ -2,8 +2,9 @@
 import cv2 # importing cv2 for camera related works
 import mediapipe as mp # Using to detect hand
 import pyautogui # to control mouse pointer
-import os,time,threading,keyboard # For basic functionalities
-
+import threading
+import os
+import keyboard
 display_width,display_height=pyautogui.size() # getting dispaly size
 cap=cv2.VideoCapture(0) # 0 => first video source
 detect_hand=mp.solutions.hands.Hands() # getting hand detector
@@ -11,7 +12,6 @@ drawing_tools=mp.solutions.drawing_utils # getting drawing tools from mediapipe
 gframe=0
 ghands=0
 start_flag=0
-gcapturing_time=0
 dis_pointer_click=100
     # i ,x y,c ,rc,up,dn
 mouse=[0,0,0,80,80,80,80]
@@ -28,7 +28,7 @@ class VideoCaptureThread(threading.Thread):
 
     def run(self):
         print(f"Thread-{self.thread_id}: Starting video capture...")
-        global gframe,ghands,start_flag,gcapturing_time # getting access of global varriables to edit
+        global gframe,ghands,start_flag # getting access of global varriables to edit
         while self.is_running:
             ret, frame = self.capture.read()
             if ret:
@@ -38,7 +38,6 @@ class VideoCaptureThread(threading.Thread):
                 hands=output_handInrgb_image.multi_hand_landmarks # getting each hqand containing 21 landmarks
                 
                 gframe,ghands=frame,hands
-                gcapturing_time=time.time()
                 start_flag=1
 
                 # Break the loop and stop capturing if 'q' is pressed
@@ -62,18 +61,15 @@ class VideoPlayThread(threading.Thread):
         global gframe,ghands # getting access of global varriables to edit
         self.frame=gframe
         self.hands=ghands
-        global gcapturing_time
-        self.cur_time=gcapturing_time
         self.is_running = True
 
     def run(self):
-        global gframe,ghands,start_flag,mouse # getting access of global varriables to edit
         print(f"Thread-{self.thread_id}: Starting video play...")
         # import mediapipe as mp # Using to detect hand
-        prev_time=0
+        global gframe,ghands,start_flag,mouse # getting access of global varriables to edit
         while self.is_running :
             try:
-                if start_flag and not(prev_time>self.cur_time): # added to fix crash
+                if start_flag:
                     frame=gframe
                     frame_height,frame_width,_=frame.shape # getting height & width of the frame
                     rgb_frame=cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
@@ -117,14 +113,12 @@ class VideoPlayThread(threading.Thread):
                         mouse[0]=0
                     cv2.imshow(f"Thread-{self.thread_id} Video", frame)
                 # Break the loop and stop capturing if 'q' is pressed
-                prev_time=self.cur_time # capturing last time to fix crash
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     self.is_running = False
                     start_flag=0
                     video_thread.stop()
                     control_mouse.stop()
             except:
-                print(f"\n\n     Video processing crashed {prev_time} , {self.cur_time}\n\n")
                 self.is_running = False
                 video_thread.stop()
                 control_mouse.stop()
@@ -198,7 +192,6 @@ class controlVM():
     def stop():
         global start_flag
         if start_flag:
-            global gframe,gcapturing_time
             print("calling stop")
             video_play_thread.stop()
             video_play_thread.join()
@@ -208,9 +201,6 @@ class controlVM():
             video_thread.join() # added last rm if necessory
             cap.release()
             cv2.destroyAllWindows()
-            # gframe=0 # resetting
-            with open("lastGFrame.txt", "w") as file:
-                file.write(str(gframe) +"Time= "+ str(gcapturing_time))
             return "Virtual Mouse is successfully stopped"
         return "Virtual Mouse is already stopped"
     def update(action_selected,sensi_selected):
