@@ -603,7 +603,7 @@
      <bool>true</bool>
     </property>
     <property name="placeholderText">
-     <string>This project is developed by Tamal Mallick,Avhishek Mondal and Souvik Baidya under the guidance of Dr. Anirban Lakshman  . </string>
+     <string>This project is developed by Tamal Mallick,Avishek Mondal and Souvik Baidya under the guidance of Dr. Anirban Lakshman  . </string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox_a2">
