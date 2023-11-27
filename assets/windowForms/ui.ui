@@ -594,6 +594,9 @@
       <pointsize>9</pointsize>
      </font>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
     <property name="placeholderText">
      <string>This project is developed by Tamal Mallick,Avhishek Mondal and Souvik Baidya under the guidance of Dr. Anirban Lakshman  . </string>
     </property>
@@ -608,41 +611,30 @@
      <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuOptions">
     <property name="title">
-     <string>File</string>
+     <string>Options</string>
     </property>
-    <addaction name="actionOpen"/>
-    <addaction name="actionSave"/>
+    <addaction name="actionHelp"/>
     <addaction name="actionClose"/>
    </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-   </widget>
-   <addaction name="menuFile"/>
-   <addaction name="menuHelp"/>
+   <addaction name="menuOptions"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionHelp">
    <property name="text">
     <string>Help</string>
    </property>
+   <property name="shortcut">
+    <string>Shift+H</string>
+   </property>
   </action>
   <action name="actionClose">
    <property name="text">
     <string>Close</string>
    </property>
-  </action>
-  <action name="actionOpen">
-   <property name="text">
-    <string>Open</string>
-   </property>
-  </action>
-  <action name="actionSave">
-   <property name="text">
-    <string>Save</string>
+   <property name="shortcut">
+    <string>Shift+C</string>
    </property>
   </action>
  </widget>

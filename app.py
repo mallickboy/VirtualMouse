@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow,QApplication,QMessageBox
 from PyQt5 import QtCore, uic
+from PyQt5.Qt import QDesktopServices
 from assets.staticIncludes.mouse import controlVM as ctl
 
 class MyGui(QMainWindow):
@@ -13,6 +14,9 @@ class MyGui(QMainWindow):
         self.pushButton_stop.clicked.connect(self.stop)
         self.pushButton_update.clicked.connect(self.update)
         self.plainTextEdit_msg.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.actionClose.triggered.connect(self.close) # triggering the built in close event
+        self.actionHelp.triggered.connect(lambda:(self.update_msg_box("Please visit :  https://github.com/mallickboy?tab=repositories ") ,
+                                                  QDesktopServices.openUrl(QtCore.QUrl("https://github.com/mallickboy?tab=repositories")))) 
         self.msg=""
         self.line=0
         self.control_map=["Click","Right Click","Scroll Up","Scroll Down","Change Tab"]
@@ -23,11 +27,6 @@ class MyGui(QMainWindow):
         self.plainTextEdit_msg.setPlainText(self.msg)
         self.plainTextEdit_msg.verticalScrollBar().setValue(self.plainTextEdit_msg.verticalScrollBar().maximum())
     def start(self):
-        # self.line+=1
-        # self.msg=self.msg+f"\n{self.line} : Startting the Virtual Mouse"
-        # print("start")
-        # self.plainTextEdit_msg.setPlainText(self.msg)
-        # self.plainTextEdit_msg.verticalScrollBar().setValue(self.plainTextEdit_msg.verticalScrollBar().maximum())
         self.update_msg_box("Startting the Virtual Mouse")
         self.pushButton_update.setStyleSheet('background-color: rgba(0, 181, 204,1)')
         self.pushButton_stop.setStyleSheet('background-color: rgba(254, 121, 104,1)')
@@ -68,11 +67,6 @@ class MyGui(QMainWindow):
         self.get_controls()
         self.update_msg_box("Updating the Virtual Mouse configurations")
     def stop(self):
-        # self.line+=1
-        # self.msg=self.msg+f"\n{self.line} : Stoping the Virtual Mouse"
-        # print("stop")
-        # self.plainTextEdit_msg.setPlainText(self.msg)
-        # self.plainTextEdit_msg.verticalScrollBar().setValue(self.plainTextEdit_msg.verticalScrollBar().maximum())
         self.update_msg_box("Stoping the Virtual Mouse")
         self.pushButton_update.setStyleSheet('background-color: rgba(0,0,0,0.1)')
         self.pushButton_stop.setStyleSheet('background-color: rgba(0,0,0,0.1)')
@@ -97,7 +91,12 @@ class MyGui(QMainWindow):
         message=QMessageBox()
         message.setText(msg)
         message.exec_()
-
+    def closeEvent(self,event): # fixed defined class for close event
+        # Ending all process before closing the window
+        print("Ending all threads before closing the window")
+        self.update_msg_box(ctl.stop())
+        try:event.accept()  # Close the window
+        except:0
 
 def main():
     app=QApplication([])
