@@ -12,8 +12,7 @@ Step 2: Install required library written inside version_requirements.txt
 
 Step 3: go inside virtual library
     \folder_name\Lib\site-packages
-    or keep app.py in the parent directry of virtual envirounment (folder_name)
-
+    or keep app.py in the pardirectry of virtual envirounment (folder_na
 Step 4: create & run python file
     python app.py
 
@@ -24,3 +23,4 @@ Step 5: Deactivate virtual envirounment for folder_name
 
     *** To install this youtube Downloader in windows ***
     double click on YouDownloader_mysetup and please write your opinion about the software
+

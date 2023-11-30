@@ -108,6 +108,21 @@
     </item>
     <item>
      <property name="text">
+      <string>Game1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Game2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Game3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Click</string>
      </property>
     </item>
@@ -667,6 +682,21 @@
     </item>
     <item>
      <property name="text">
+      <string>Game1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Game2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Game3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Click</string>
      </property>
     </item>
@@ -748,6 +778,26 @@
     <item>
      <property name="text">
       <string>Virtual Keyboard</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Game1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Game2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Game3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Game4</string>
      </property>
     </item>
     <item>

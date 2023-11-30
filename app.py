@@ -19,7 +19,7 @@ class MyGui(QMainWindow):
                                                   QDesktopServices.openUrl(QtCore.QUrl("https://github.com/mallickboy?tab=repositories")))) 
         self.msg=""
         self.line=0
-        self.control_map=["Click","Scroll Down","Scroll Up","Right Click","Change Tab","Change Window","Minimize All","Lock Window","Exit Window","Print Window","File Manager","Virtual Keyboard","Press Enter"]
+        self.control_map=["Click","Scroll Down","Scroll Up","Right Click","Change Tab","Change Window","Minimize All","Lock Window","Exit Window","Print Window","File Manager","Virtual Keyboard","Press Enter","Game1","Game2","Game3","Game4"]
     def update_msg_box(self,msg):
         print(msg)
         self.line+=1

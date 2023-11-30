@@ -1,0 +1,33 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.0.1}%
+\contentsline {subsection}{\numberline {1.1}Problem Statement }{2}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {1.2}Objective }{2}{subsection.0.1.2}%
+\contentsline {subsubsection}{{Hand Gesture Recognition:}}{3}{section*.8}%
+\contentsline {subsubsection}{{Cursor Control:}}{3}{section*.9}%
+\contentsline {subsubsection}{{Click and Scroll Actions:}}{3}{section*.10}%
+\contentsline {subsubsection}{{Customization:}}{3}{section*.11}%
+\contentsline {subsubsection}{{Real-time Performance:}}{3}{section*.12}%
+\contentsline {subsubsection}{{Accessibility:}}{3}{section*.13}%
+\contentsline {subsubsection}{User-Friendly Interface: }{3}{section*.14}%
+\contentsline {subsubsection}{Evaluation and Optimization:}{3}{section*.15}%
+\contentsline {section}{\numberline {2}Tools and Techniques Used}{5}{section.0.2}%
+\contentsline {subsection}{\numberline {2.1}Libraries Used}{5}{subsection.0.2.1}%
+\contentsline {subsubsection}{MediaPipe}{5}{section*.17}%
+\contentsline {subsubsection}{OpenCV}{5}{section*.18}%
+\contentsline {subsubsection}{PyAutoGUI}{6}{section*.19}%
+\contentsline {subsection}{\numberline {2.2}Algorithm }{6}{subsection.0.2.2}%
+\contentsline {subsection}{\numberline {2.3}Flow Chart of Virtual Mouse}{8}{subsection.0.2.3}%
+\contentsline {section}{\numberline {3}Features of Virtual Mouse }{10}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Function 1 ( Cursor Moving)}{10}{subsection.0.3.1}%
+\contentsline {subsection}{\numberline {3.2}Function 2 ( Click )}{10}{subsection.0.3.2}%
+\contentsline {subsection}{\numberline {3.3}Function 3 ( Selectable )}{11}{subsection.0.3.3}%
+\contentsline {subsection}{\numberline {3.4}Function 4 ( Selectable )}{12}{subsection.0.3.4}%
+\contentsline {subsection}{\numberline {3.5}Function 5 ( Selectable )}{12}{subsection.0.3.5}%
+\contentsline {subsection}{\numberline {3.6}Others}{13}{subsection.0.3.6}%
+\contentsline {subsubsection}{Gaming}{13}{section*.21}%
+\contentsline {section}{\numberline {4}Performance Analysis}{15}{section.0.4}%
+\contentsline {subsection}{\numberline {4.1}Test Results of Functionalities}{15}{subsection.0.4.1}%
+\contentsline {subsection}{\numberline {4.2}Test Results in Different Conditions}{16}{subsection.0.4.2}%
+\contentsline {section}{\numberline {5}Conclusion and Future Scope}{18}{section.0.5}%
+\contentsline {subsection}{\numberline {5.1}Conclusion}{18}{subsection.0.5.1}%
+\contentsline {subsection}{\numberline {5.2}Future Scope}{18}{subsection.0.5.2}%
+\contentsline {section}{\numberline {6}References}{20}{section.0.6}%

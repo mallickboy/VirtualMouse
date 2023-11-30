@@ -1,6 +1,6 @@
 # Threading  + [Left ,right click ; up,down scroll ]
 import cv2 # importing cv2 for camera related works
-import mediapipe as mp # Using to detect hand
+import mediapipe.python as mp # Using to detect hand
 import pyautogui # to control mouse pointer
 import os,time,threading,keyboard # For basic functionalities
 
@@ -142,7 +142,7 @@ class control_mouse_pointer(threading.Thread):
         global video_thread,control_mouse,video_play_thread
         self.is_running = True
         self.action=[
-            lambda:(pyautogui.click(),print("Clicked : ",threading.active_count()) ,pyautogui.sleep(0.2)),
+            lambda:(pyautogui.click(),print("Clicked : ",threading.active_count()) ,pyautogui.sleep(0.1)),
             lambda:(pyautogui.scroll(-100),print("scroll down",mouse[6]),pyautogui.sleep(0.1) ),
             lambda:( pyautogui.scroll(100),print("scroll up",mouse[5]),pyautogui.sleep(0.1) ),
             lambda:(pyautogui.rightClick(),print("Right Clicked : ",threading.active_count()),pyautogui.sleep(0.4)),
@@ -155,6 +155,10 @@ class control_mouse_pointer(threading.Thread):
             lambda:(pyautogui.hotkey('win', 'e'),print("Open File Explorer : ",threading.active_count()),pyautogui.sleep(0.3)),
             lambda:(pyautogui.hotkey('win', 'ctrl', 'o'),print("Open Virtual Keyboard : ",threading.active_count()),pyautogui.sleep(0.6)),
             lambda:(pyautogui.press('enter'),print("Pressed Enter : ",threading.active_count()),pyautogui.sleep(0.6)),
+            lambda:(pyautogui.hotkey('e'),print("Game1 : ",threading.active_count()),pyautogui.sleep(0.6)),
+            lambda:(pyautogui.hotkey('x'),print("Game2 : ",threading.active_count()),pyautogui.sleep(0.6)),
+            lambda:(pyautogui.hotkey('r'),print("Game3 : ",threading.active_count()),pyautogui.sleep(0.6)),
+            lambda:(pyautogui.hotkey('b'),print("Game4 : ",threading.active_count()),pyautogui.sleep(0.6)),
                      ]    
     def ctl_action(self,selector):
         select=action_selector[selector]
@@ -162,23 +166,26 @@ class control_mouse_pointer(threading.Thread):
     def run(self):
         print(f"Thread-{self.thread_id}: Starting mouse control...")
         global mouse,sensi
-        while self.is_running :
-            if keyboard.is_pressed('ctrl+shift+c'):
-                print("Quitting the loop.")
-                video_thread.stop()
-                video_play_thread.stop()
-                control_mouse.stop()
-                return 0
-            if(mouse[1]<=display_width and mouse[2]<=display_height and mouse[1]and mouse[2] and mouse[0] ):
-                pyautogui.moveTo(mouse[1],mouse[2])
-            if mouse[3]<sensi[0] : # thumb & index                              ctl 0 : default action 0 (click)
-                self.ctl_action(0)
-            elif mouse[4]<sensi[1]: # thumb & pinky                             ctl 1 : default action 1 (right click)
-                self.ctl_action(1)
-            elif mouse[5]<sensi[2] and mouse[0] : # index & middle              ctl 2 : default action 2 (scroll up)
-                self.ctl_action(2)
-            elif mouse[6]<sensi[3] and mouse[0] : # thumb tip & index buttom    ctl 3 : default action 3 (scroll down)
-                self.ctl_action(3)
+        try:
+            while self.is_running :
+                if keyboard.is_pressed('ctrl+shift+c'):
+                    print("Quitting the loop.")
+                    video_thread.stop()
+                    video_play_thread.stop()
+                    control_mouse.stop()
+                    return 0
+                if(mouse[1]<=display_width and mouse[2]<=display_height and mouse[1]and mouse[2] and mouse[0] ):
+                    pyautogui.moveTo(mouse[1],mouse[2])
+                if mouse[3]<sensi[0] : # thumb & index                              ctl 0 : default action 0 (click)
+                    self.ctl_action(0)
+                elif mouse[4]<sensi[1]: # thumb & pinky                             ctl 1 : default action 1 (right click)
+                    self.ctl_action(1)
+                elif mouse[5]<sensi[2] and mouse[0] : # index & middle              ctl 2 : default action 2 (scroll up)
+                    self.ctl_action(2)
+                elif mouse[6]<sensi[3] and mouse[0] : # thumb tip & index buttom    ctl 3 : default action 3 (scroll down)
+                    self.ctl_action(3)
+        except:
+            print("Action error")
     def stop(self):
         print(f"Thread-{self.thread_id}: mouse control thread stopped.")
         self.is_running = False
