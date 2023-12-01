@@ -194,17 +194,17 @@ This thesis presents the design and implementation of an Virtual Mouse system us
 
 	\label{Introduction}
 	\section{Introduction}
-		{In the realm of human-computer interaction (HCI), the virtual mouse has emerged as a revolutionary tool, offering an alternative to the traditional mouse for controlling computer cursors. This innovative technology utilizes hand gestures or other motion-based inputs to translate user movements into precise cursor movements. 
+		{In the realm of human-computer interaction (HCI), the virtual mouse has emerged as a revolutionary tool, offering an alternative to the traditional mouse for controlling computer cursors. This innovative technology utilizes hand gestures or other motion-based inputs to translate user movements into precise cursor movements. \cite{r1}
 
  
 
-At the heart of virtual mouse technology lies the power of image processing and computer vision algorithms. These algorithms, often employing artificial intelligence (AI), are capable of tracking hand movements and gestures with remarkable accuracy. By analyzing the captured video feed from a webcam or other depth sensors, the virtual mouse software can decipher the user's intentions and translate them into corresponding mouse actions. 
+At the heart of virtual mouse technology lies the power of image processing and computer vision algorithms. These algorithms, often employing artificial intelligence (AI), are capable of tracking hand movements and gestures with remarkable accuracy. By analyzing the captured video feed from a webcam or other depth sensors, the virtual mouse software can decipher the user's intentions and translate them into corresponding mouse actions.\cite{r3} 
 
  
 
 The benefits of virtual mouse technology extend far beyond the realm of traditional desktop computing. For individuals with disabilities, virtual mice offer a newfound level of independence and interaction with computers, Moreover, virtual mice promote ergonomic principles by reducing strain on the wrists and hands, which is particularly beneficial for individuals who spend extended periods working on computers. 
 
-As virtual mouse technology continues to evolve, its potential applications are expanding beyond cursor control. Researchers are exploring the use of virtual mice for gesture-based interactions in gaming, sign language recognition, and virtual reality (VR) environments. The possibilities seem endless, with the potential to revolutionize the way we interact with computers and the digital world. 
+As virtual mouse technology continues to evolve, its potential applications are expanding beyond cursor control. Researchers are exploring the use of virtual mice for gesture-based interactions in gaming, sign language recognition, and virtual reality (VR) environments.\cite{r7} The possibilities seem endless, with the potential to revolutionize the way we interact with computers and the digital world. 
 
  
 
@@ -218,28 +218,28 @@ This project report delves into the intricacies of virtual mouse technology, exp
 
  
 
-\subsubsection{{Hand Gesture Recognition:}}Develop a robust hand gesture recognition system capable of accurately interpreting a user's hand movements. 
+\subsubsection{{Hand Gesture Recognition:}}Develop a robust hand gesture recognition system capable of accurately interpreting a user's hand movements. \cite{r5}
 
 
-\subsubsection{{Cursor Control:}}Implement a mechanism for translating hand gestures into precise cursor movements on the computer screen, ensuring responsive and natural interaction. 
+\subsubsection{{Cursor Control:}}Implement a mechanism for translating hand gestures into precise cursor movements on the computer screen, ensuring responsive and natural interaction. \cite{r6}
 
 
-\subsubsection{{Click and Scroll Actions:}}Enable the Virtual Mouse to perform essential actions such as left-click, right-click, and scroll, mimicking the functionalities of a physical mouse. 
+\subsubsection{{Click and Scroll Actions:}}Enable the Virtual Mouse to perform essential actions such as left-click, right-click, and scroll, mimicking the functionalities of a physical mouse. \cite{r7}
 
 
-\subsubsection{{Customization:}}Provide users with the ability to customize sensitivity parameters and gesture thresholds to accommodate individual preferences and comfort levels. 
+\subsubsection{{Customization:}}Provide users with the ability to customize sensitivity parameters and gesture thresholds to accommodate individual preferences and comfort levels. \cite{r3,r4}
 
   
-\subsubsection{{Real-time Performance:}}Ensure real-time processing of hand gestures, minimizing latency and providing a seamless and responsive user experience. 
+\subsubsection{{Real-time Performance:}}Ensure real-time processing of hand gestures, minimizing latency and providing a seamless and responsive user experience. \cite{r8}
 
 
-\subsubsection{{Accessibility:}}Enhance accessibility for individuals with physical disabilities, allowing them to interact with computers using intuitive hand movements, thereby promoting inclusivity. 
+\subsubsection{{Accessibility:}}Enhance accessibility for individuals with physical disabilities, allowing them to interact with computers using intuitive hand movements, thereby promoting inclusivity. \cite{r9}
 
-\subsubsection{User-Friendly Interface: }Design an intuitive user interface for configuring and controlling the Virtual Mouse, making it user-friendly and accessible to a diverse range of users. 
+\subsubsection{User-Friendly Interface: }Design an intuitive user interface for configuring and controlling the Virtual Mouse, making it user-friendly and accessible to a diverse range of users. \cite{r2}
 
  
 
-\subsubsection{Evaluation and Optimization:}Conduct thorough evaluations to assess the accuracy, usability, and overall effectiveness of the Virtual Mouse. Iterate on the design to optimize performance based on user feedback. 
+\subsubsection{Evaluation and Optimization:}Conduct thorough evaluations to assess the accuracy, usability, and overall effectiveness of the Virtual Mouse. Iterate on the design to optimize performance based on user feedback. \cite{r1}
 
 
 
@@ -253,9 +253,9 @@ This project report delves into the intricacies of virtual mouse technology, exp
 		\label{MediaPipe}
 		\vspace{0.5cm}
 		\subsubsection{MediaPipe}
-			{Media Pipe is a framework which is used for applying in a machine learning pipeline, and it is an open-source framework of Google. The framework is useful for cross platform development since the framework is built using the time series data. 
+			{Media Pipe is a framework which is used for applying in a machine learning pipeline, and it is an open-source framework of Google.\cite{r3} The framework is useful for cross platform development since the framework is built using the time series data. 
 
-The Media Pipe framework is multimodal, where this framework can be applied to various audios and videos. The Media Pipe framework is used by the developer for building and analyzing the systems through graphs, and it has also been used for developing the systems for the application purpose. The steps involved in the system that uses Media Pipe are carried out in the pipeline configuration. The pipeline created can run on various platforms allowing scalability in mobile and desktops. The Media Pipe framework is based on three fundamental parts, they are:
+The Media Pipe framework is multimodal, where this framework can be applied to various audios and videos. The Media Pipe framework is used by the developer for building and analyzing the systems through graphs, and it has also been used for developing the systems for the application purpose.\cite{r1} The steps involved in the system that uses Media Pipe are carried out in the pipeline configuration. The pipeline created can run on various platforms allowing scalability in mobile and desktops. The Media Pipe framework is based on three fundamental parts, they are:
 
 \begin{itemize}
     \item Performance evaluation 
@@ -263,16 +263,16 @@ The Media Pipe framework is multimodal, where this framework can be applied to v
     \item Collection of components
 \end{itemize}
 
-which are called calculators, and they are reusable. A pipeline is a graph which consists of components called calculators, where each calculator is connected by streams in which the packets of data flow through. Developers can replace or define custom calculators anywhere in the graph creating their own application. The calculators and streams combined create a data-flow diagram; the graph is created with Media Pipe where each node is a calculator, and the nodes are connected by streams. Single-shot detector model is used for detecting and recognizing a hand or palm in real time. The single-shot detector model is used by Media Pipe. First, in the hand detection module, it is first trained for a palm detection model because it is easier to train palms. Furthermore, the non-maximum suppression works significantly better on small objects such as palms or fists. A model of hand landmark consists of locating joint or knuckle co-ordinates in the hand region }
+which are called calculators, and they are reusable. A pipeline is a graph which consists of components called calculators, where each calculator is connected by streams in which the packets of data flow through. Developers can replace or define custom calculators anywhere in the graph creating their own application. The calculators and streams combined create a data-flow diagram; the graph is created with Media Pipe where each node is a calculator, and the nodes are connected by streams. Single-shot detector model is used for detecting and recognizing a hand or palm in real time. The single-shot detector model is used by Media Pipe.\cite{r4} First, in the hand detection module, it is first trained for a palm detection model because it is easier to train palms. Furthermore, the non-maximum suppression works significantly better on small objects such as palms or fists. A model of hand landmark consists of locating joint or knuckle co-ordinates in the hand region }
 	\label{OpenCV}
 	\subsubsection{OpenCV}
 	{
-	OpenCV is a computer vision library which contains image-processing algorithms for object detection. OpenCV is a library of python programming language, and real-time computer vision applications can be developed by using the computer vision library. The OpenCV library is used in image and video processing and analysis such as face detection and object detection. 
+	OpenCV is a computer vision library which contains image-processing algorithms for object detection. OpenCV is a library of python programming language, and real-time computer vision applications can be developed by using the computer vision library.\cite{r6} The OpenCV library is used in image and video processing and analysis such as face detection and object detection. \cite{r7} 
 }	
 	\label{PyAutoGUI}
 	\subsubsection{PyAutoGUI}
 	{
-		PyAutoGUI, a popular Python library, can be seamlessly integrated into the A1 virtual mouse system as a vital component. PyAutoGUI provides a wide range of functionalities that enhance the virtual mouse's capabilities and enable efficient computer control. PyAutoGUI offers methods for simulating mouse movements, clicks, scrolling and many more allowing the virtual mouse to accurately mimic the actions of a physical mouse. This integration ensures that the virtual mouse system can perform tasks that require precise mouse interactions in a reliable and efficient manner. 
+		PyAutoGUI, a popular Python library, can be seamlessly integrated into the A1 virtual mouse system as a vital component. PyAutoGUI provides a wide range of functionalities that enhance the virtual mouse's capabilities and enable efficient computer control. PyAutoGUI offers methods for simulating mouse movements, clicks, scrolling and many more allowing the virtual mouse to accurately mimic the actions of a physical mouse.\cite{r5} This integration ensures that the virtual mouse system can perform tasks that require precise mouse interactions in a reliable and efficient manner. 
 	}
 	\label{Algorithm }
 	\subsection{Algorithm }
@@ -587,9 +587,11 @@ The virtual mouse technology offers several advantages over traditional mouse in
 	
 	The virtual mouse technology holds immense potential to revolutionize human-computer interaction, making computers more accessible, ergonomic, and intuitive for users worldwide. As technology continues to evolve, we can expect to see its adoption in various domains, from personal computing to healthcare, education, and entertainment. 
 	\newpage
-				{\vfill \chapter*{\centering \vfill Chapter 6 \vfill}\vfill}
-		\thispagestyle{empty}
-		\newpage
-	\section{References}
+
+
+
+\bibliographystyle{plain} 
+\bibliography{references} 
+
 	
 \end{document}

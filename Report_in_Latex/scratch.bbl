@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{r2}
+C.~Chen, Y.~Chen, and C.~Lin.
+\newblock Real-time hand gesture recognition for virtual mouse control using
+  mediapipe and pyautogui.
+\newblock arXiv preprint arXiv:2111.15460, 2021.
+
+\bibitem{r1}
+L.~Cheng, X.~Chen, and J.~Luo.
+\newblock Hand gesture recognition for human-computer interaction: A survey.
+\newblock In {\em Advances in Artificial Intelligence and Intelligent Systems},
+  pages 519--531. Springer, Singapore, 2022.
+
+\bibitem{r5}
+A.~G{\'e}ron.
+\newblock {\em Hands-On Machine Learning with Scikit-Learn and TensorFlow:
+  Concepts, Tools, and Techniques to Build Intelligent Systems}.
+\newblock O'Reilly Media, 2017.
+
+\bibitem{r3}
+{PyImageSearch}.
+\newblock Hand gesture recognition using mediapipe in python.
+
+\bibitem{r4}
+{Real Python}.
+\newblock Controlling the mouse with hand gestures using python.
+
+\bibitem{r7}
+R.~Rojas.
+\newblock {\em Building Intelligent Systems with Python: A Hands-On Approach}.
+\newblock PACKT Publishing, 2022.
+
+\bibitem{r8}
+A.~Silberschatz, P.~B. Galvin, and G.~Gagne.
+\newblock {\em Operating System Concepts}.
+\newblock 2020.
+
+\bibitem{r6}
+Sachin Singh.
+\newblock Hand gesture recognition for virtual mouse control.
+\newblock
+  \url{https://medium.com/@sachin.singh.professional/ai-virtual-mouse-using-hand-gesture-recognition-%EF%B8%8F-cd189d5bc824}.
+
+\bibitem{r9}
+A.~S. Tanenbaum.
+\newblock {\em Modern Operating Systems}.
+\newblock 2019.
+
+\end{thebibliography}

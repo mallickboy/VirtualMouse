@@ -1,0 +1,155 @@
+ENTRY
+  { address
+    author
+    booktitle
+    chapter
+    edition
+    editor
+    howpublished
+    institution
+    journal
+    key
+    month
+    note
+    number
+    organization
+    pages
+    publisher
+    school
+    series
+    title
+    type
+    volume
+    year
+  }
+  {}
+  { label extra.label sort.label short.list }
+INTEGERS { output.state before.all mid.sentence after.sentence after.block }
+FUNCTION {init.state.consts}
+{ #0 'before.all :=
+  #1 'mid.sentence :=
+  #2 'after.sentence :=
+  #3 'after.block :=
+}
+STRINGS { s t}
+FUNCTION {output.nonnull}
+{ 's :=
+  output.state mid.sentence =
+    { ", " * write$ }
+    { output.state after.block =
+        { add.period$ write$
+          newline$
+          "\newblock " write$
+        }
+        { output.state before.all =
+            'write$
+            { output.state after.block =
+                { add.period$ write$
+                  newline$
+                  "\newblock " write$
+                }
+                { output.state = after.sentence =
+                    { add.period$ write$
+                      space$ write$
+                    }
+                    { add.period$ write$
+                      newline$
+                      "\newblock " write$
+                    }
+                  if$
+                }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+  s
+}
+
+FUNCTION {output}
+{ duplicate$ empty$
+    'pop$
+    'output.nonnull
+  if$
+}
+
+FUNCTION {write.page.range}
+{ 't :=
+  duplicate$ empty$
+    'pop$
+    { swap$ duplicate$ empty$
+        { swap$ pop$ write$ }
+        { ":" *
+          swap$ pages n.dashify * write$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {write.pages}
+{ duplicate$ empty$
+    'pop$
+    { swap$ duplicate$ empty$
+        { swap$ pop$ write$ }
+        { swap$ pages multi.page.check
+            'write.page.range
+            'write.range
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.pages}
+{ pages duplicate$ empty$
+    'pop$
+    { duplicate$ multi.page.check
+        {
+          'pages.fmt
+        }
+        {
+          'pages.fmt.short
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {pages.fmt}
+{ pages duplicate$ empty$
+    'pop$
+    { swap$ duplicate$ empty$
+        { pop$ format.pages }
+        { ":" *
+          swap$ n.dashify pages * 
+          write$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {pages.fmt.short}
+{ pages duplicate$ empty$
+    'pop$
+    { swap$ duplicate$ empty$
+        { pop$ format.pages }
+        { ":" *
+          swap$ n.dashify pages * 
+          write$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.eprint}
+{ eprint empty$
+    { "" }
+    { new.block "E-print" eprint * }
+  if$
+}
