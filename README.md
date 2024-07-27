@@ -1,7 +1,10 @@
 <h1 align="center">Video Demo</h1>
 
-<iframe src="https://drive.google.com/file/d/16LGYwYmQ7ROrBEFCdgha31rLLcNsRAPI/preview" width="640" height="480" allow="autoplay"></iframe>
+<p align="center">
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2ky4_TPi58M?si=i0l6jtqCpoYcxl4I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</p>
 
 # Virtual Mouse With Hand Gestures
 
